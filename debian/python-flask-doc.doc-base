@@ -1,0 +1,12 @@
+Document: flask
+Title: Flask Documentation
+Author: Armin Ronacher
+Abstract: This document describes Flask - Python micro web framework
+Section: Programming/Python
+
+Format: text
+Files: /usr/share/doc/python-flask/rst/*.txt
+
+Format: HTML
+Index: /usr/share/doc/python-flask/html/index.html
+Files: /usr/share/doc/python-flask/html/*.html

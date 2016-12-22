@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+	
+export PYBUILD_DESTDIR_python2=debian/python-flask/
+export PYBUILD_DESTDIR_python3=debian/python3-flask/
+
+%:
+	dh $@ --with python2,python3,sphinxdoc --buildsystem pybuild
+
+override_dh_auto_test:
+	http_proxy='' dh_auto_test
+
+override_dh_python3:
+	dh_python3 -p python3-flask
+	rm -rf debian/python3-flask/usr/lib/python3/dist-packages/flask/testsuite/
+
+override_dh_installdocs:
+	dh_installdocs
+	PYTHONPATH=. sphinx-build -N -q -E -b html docs/ debian/python-flask-doc/usr/share/doc/python-flask-doc/html/
+
+override_dh_auto_clean:
+	dh_auto_clean
+	rm -rf Flask.egg-info/ build
+	find . \( -name '*.py[co]' -or -name '\._*' -or -name '\.DS_Store' \) -delete
