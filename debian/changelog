@@ -1,3 +1,10 @@
+flask (0.10.1-2+deb8u1) jessie-security; urgency=medium
+
+  * Non-maintainer upload by the Debian LTS Team.
+  * Fix CVE-2018-1000656: CWE-20 
+
+ -- Abhijith PA <abhijith@debian.org>  Sat, 17 Aug 2019 10:12:37 +0530
+
 flask (0.10.1-2) unstable; urgency=low
 
   * Add python3-flask binary package
